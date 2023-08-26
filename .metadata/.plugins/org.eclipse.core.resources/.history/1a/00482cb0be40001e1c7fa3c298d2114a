@@ -1,0 +1,33 @@
+package com.edu;
+
+public class TypesOfOverloading {
+	
+	static void max(int a, int b) {
+		if (a > b) {
+			System.out.println(a);
+		}
+		else {
+			System.out.println(b);
+		}
+	}
+	
+	static void max(int a, int b, int c) {
+		if (a > b && a > c) {
+			System.out.println(a);
+		}
+		else if (b > a && b > c) {
+			System.out.println(b);
+		}
+		else {
+			System.out.println(c);
+		}
+	}
+
+	public static void main(String[] args) {
+		//TypesOfOverloading obj = new TypesOfOverloading();
+		
+		max(5, 8);
+		max(8, 7, 10);
+	}
+
+}

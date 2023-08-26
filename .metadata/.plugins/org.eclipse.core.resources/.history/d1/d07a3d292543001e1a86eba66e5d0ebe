@@ -1,0 +1,16 @@
+package com.edu;
+
+public class TestMain{
+	public TestMain(String s) {
+		System.out.println("string");
+	}
+	
+	public TestMain() {
+		System.out.println("");
+		
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

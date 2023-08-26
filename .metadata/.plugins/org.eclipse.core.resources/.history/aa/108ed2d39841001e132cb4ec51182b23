@@ -1,0 +1,26 @@
+package com.edu;
+
+class Parent{
+	void add(){
+		System.out.println("add of parent");
+	}
+}
+
+class Child extends Parent{
+	void add(){
+        System.out.println("add of Child");
+    }
+}
+
+public class TestMain {
+	
+	public static void main(String[] args) {
+		System.out.println("String main");
+		Child child = new Child();
+		child.add();
+	}	
+	
+	public static void main(int[] i) {
+		System.out.println("Integer main");
+	}
+}

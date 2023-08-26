@@ -1,0 +1,16 @@
+package com.edu;
+
+public class OverridingDemo{
+	public OverridingDemo(String s) {
+		System.out.println("string");
+	}
+	
+	public OverridingDemo() {
+		System.out.println("");
+		
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+}

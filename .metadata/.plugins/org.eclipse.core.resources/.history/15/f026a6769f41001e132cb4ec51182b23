@@ -1,0 +1,27 @@
+package com.edu.Inheritance.pack1;
+
+import com.edu.Inheritance.pack2.*;
+
+class EmployeeClass{
+	private int i;
+	
+	private void empPersonalDetails() {
+		System.out.println("empPersonalDetails");
+	}
+	protected void display() {
+		System.out.println("display method "+i);
+		empPersonalDetails();
+	}
+}
+
+public class Employee {
+
+	public static void main(String[] args) {
+		EmployeeClass eob = new EmployeeClass();
+		eob.display();
+		
+		HR hob=new HR();
+		hob.input();
+	    hob.display();
+	}
+}

@@ -3,17 +3,21 @@ package com.edu;
 import java.util.Scanner;
 
 public class SmallDiscount {
-	
-	void inputDetails() {
+	float discountedPrice = 0, pprice;
+	String pname;
+
+	public void inputDetails() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter the Product Name: ");
-		String pname = sc.nextLine();
+		pname = sc.nextLine();
 		
 		System.out.print("Enter the Price: ");
-		float pprice = sc.nextFloat();
+		pprice = sc.nextFloat();
 	}
 	
-	void calculateBill() {
+	public void calculateBill() {
+		System.out.println("---\nProduct Name: " + pname);
+
 		if (pprice >=0 && pprice<= 1000) {
 			discountedPrice = pprice - (pprice * 2/100);
 		}
@@ -26,13 +30,14 @@ public class SmallDiscount {
 		else {
 			System.out.println("Invalid entry");
 		}
+		
+		System.out.println("Discounted Price: " + discountedPrice);
 	}
 	
 	public static void main(String[] args) {
+		SmallDiscount obj = new SmallDiscount();
 		
-		float discountedPrice = 0;
-		
-		System.out.println("Product Name: " + pname);
-		System.out.println("Discounted Price: " + discountedPrice);
+		obj.inputDetails();
+		obj.calculateBill();
 	}
 }
