@@ -1,0 +1,12 @@
+package com.elevatorprogram;
+
+import com.elevatorprogram.Elevator;
+
+public class ElevatorDriver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

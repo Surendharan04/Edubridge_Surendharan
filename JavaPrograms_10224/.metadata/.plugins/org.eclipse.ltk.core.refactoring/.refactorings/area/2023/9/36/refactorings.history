@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.areaofshapes&apos; to &apos;FirstDay/src&apos;&#x0D;&#x0A;- Original project: &apos;area&apos;&#x0D;&#x0A;- Destination element: &apos;FirstDay/src&apos;&#x0D;&#x0A;- Original element: &apos;area/src/com.areaofshapes&apos;" description="Copy package" destination="=FirstDay/src" element1="/src&lt;com.areaofshapes" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1693996248546" version="1.0"/>
+</session>

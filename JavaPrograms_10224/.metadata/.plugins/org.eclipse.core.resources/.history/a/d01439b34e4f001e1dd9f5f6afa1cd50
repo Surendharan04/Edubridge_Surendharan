@@ -1,0 +1,43 @@
+package com.elevatorprogram;
+
+import java.util.Scanner;
+
+public class Elevator {
+	public void selectFloor() {
+		//Set the current floor to 1
+		int currentFloor = 1;
+		
+		Scanner sc = new Scanner(System.in);
+		//Getting the choice of option from the user
+		System.out.println("Options: (s)elect a floor, (f)ire alarm, (q)uit");
+		System.out.print("Enter s, f or q ==> ");
+		String choice = sc.next().toLowerCase();	//Change the choice to lowercase 
+
+		if (choice == "s") {
+			System.out.print("Enter the floor that you'd like to go to ==> ");
+			int floorSelection = sc.nextInt();
+			
+			System.out.print("Going up..");
+			for (int i = 1; i <= floorSelection; i++) {
+				System.out.print(i + "..");
+				currentFloor = floorSelection;
+			}
+			System.out.println("Ding!");
+		}
+		
+		else if (choice == "f") {
+			fireAlarm(choice);
+			currentFloor = 1;
+		}
+		
+		else {
+			
+		}
+	}
+	
+	public void fireAlarm(String floorSelect) {
+		if (floorSelect == "f") {
+			System.out.println("Danger! You must exit the building now");
+		}
+	}
+}

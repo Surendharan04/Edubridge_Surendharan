@@ -1,0 +1,19 @@
+package com.edu;
+
+import java.util.Scanner;
+import java.util.function.Function;
+
+public class FunctionDemo {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the String: ");
+		String string = sc.nextLine();
+		
+		Function<String, Integer> func = (str) -> str.length();
+		
+		int len = fob.apply(string);
+		System.out.println("Length is " + len);
+	}
+
+}

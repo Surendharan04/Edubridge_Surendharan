@@ -1,0 +1,10 @@
+package com.elevatorprogram;
+
+public class ElevatorDriver {
+
+	public static void main(String[] args) {
+		Elevator elevator = new Elevator();
+		elevator.selectFloor();
+	}
+
+}

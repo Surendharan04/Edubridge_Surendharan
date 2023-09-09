@@ -1,0 +1,49 @@
+package com.calculatortest;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.calculator.Calculator;
+
+public class CalculatorTest {
+
+	Calculator cal = new Calculator();
+	
+	@Test
+	public void calculatorTestSum() {
+		int a, b, sum;
+		a = 20;
+		b = 10;
+		sum = cal.add(a , b);
+		assertEquals(30, sum);	
+	}
+	
+	@Test
+	public void calculatorTestSubtract() {
+		int a, b, sub;
+		a = 20;
+		b = 10;
+		sub = cal.add(a , b);
+		assertEquals(10, sub);	
+	}
+	
+	@Test
+	public void calculatorTestMultiply() {
+		int a, b, mul;
+		a = 20;
+		b = 10;
+		mul = cal.add(a , b);
+		assertEquals(200, mul);	
+	}
+	
+	@Test
+	public void calculatorTestDivide() {
+		int a, b, div;
+		a = 20;
+		b = 10;
+		div = cal.add(a , b);
+		assertEquals(2, div);	
+	}
+
+}

@@ -1,0 +1,33 @@
+package com.edu.singleton;
+
+class Product{
+	private static Product pob;
+	private Product() {}
+	public static Product getProductObject() {
+		if (pob == null) {
+			pob = new Product();
+			return pob;
+		}
+		else {
+			return pob;
+		}
+	}
+	
+	public void displayProduct() {
+		System.out.println("Display all products");
+	}
+	
+	public void productCreation() {
+		System.out.println("Product created");
+	}
+}
+
+public class SingletonDemo {
+	public static void main(String[] args) {
+		Product pob = Product.getProductObject();
+		pob.displayProduct();
+		
+		Product pob1 = Product.getProductObject();
+		pob1.productCreation();
+	}
+}

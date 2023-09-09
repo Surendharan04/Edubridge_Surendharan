@@ -1,0 +1,5 @@
+package com.edu.singleton;
+
+public class SingletonDemo {
+
+}

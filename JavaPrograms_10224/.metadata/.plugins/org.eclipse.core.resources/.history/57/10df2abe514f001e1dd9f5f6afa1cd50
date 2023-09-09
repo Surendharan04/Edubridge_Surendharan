@@ -1,0 +1,43 @@
+package com.elevatorprogram;
+
+import java.util.Scanner;
+
+public class Elevator {
+    int currentFloor = 1;
+    
+    public void selectFloor() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the floor that you'd like to go to ==> ");
+        int floorSelection = sc.nextInt();
+
+        if (floorSelection >= 1 && floorSelection <= 10) {
+        	
+            if (floorSelection > currentFloor) {
+                System.out.print("Going up..");
+                for (int i = currentFloor; i <= floorSelection; i++) {
+                    System.out.print(i + "..");
+                    currentFloor = i; // The currentFloor is updated to the selected floor
+                }
+            } 
+            else if (floorSelection < currentFloor) {
+                System.out.print("Going down..");
+                for (int i = currentFloor; i >= floorSelection; i--) {
+                    System.out.print(i + "..");
+                    currentFloor = i; // The currentFloor is updated to the selected floor
+                }
+            }
+            System.out.println("Ding!");
+        } 
+        
+        else {
+            // Error if the user enters an invalid floor
+            System.err.println("Invalid floor entry");
+        }
+    }
+    
+
+    public void fireAlarm() {
+        System.out.println("Danger! You must exit the building now");
+        currentFloor = 1;
+    }
+}

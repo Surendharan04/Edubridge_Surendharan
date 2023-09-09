@@ -1,0 +1,19 @@
+package com.edu;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MyTest {
+
+	@Test
+	public void test() {
+		//fail("Not yet implemented");
+		int s, a, b;
+		a = 6;
+		b = 9;
+		s = a + b;
+		assertEquals(15, s);
+	}
+
+}

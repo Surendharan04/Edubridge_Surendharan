@@ -1,0 +1,14 @@
+package com.creativeprograms;
+
+/*String str="CAPGEMINI"->INPUT
+C A P G E M I N I->OUTPUT
+
+Using Lambda Expression*/
+
+public class LambdaProgram {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

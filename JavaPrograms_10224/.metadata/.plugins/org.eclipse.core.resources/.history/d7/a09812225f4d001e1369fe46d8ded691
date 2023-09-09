@@ -1,0 +1,38 @@
+package com.creativeprograms;
+
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+/*String str="CAPGEMINI"->INPUT
+C A P G E M I N I->OUTPUT
+
+Using Lambda Expression*/
+
+@FunctionalInterface
+interface WhiteSpacedString{
+	void whiteSpace(String s);
+}
+
+public class LambdaProgram {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the String: ");
+		String string = sc.next();
+		
+		WhiteSpacedString wss = (String s) -> {
+			char[] charr = s.toCharArray();
+			for (int i = 0; i < charr.length; i++) {
+				System.out.print(charr[i] + " ");
+			
+			}
+		};
+		wss.whiteSpace(string.trim());
+		
+		//Stream API
+		//String streamstr = string.chars().map(c -> (char) c + " ").collect(Collectors.joining());
+		
+		//System.out.println(streamstr);
+	}
+
+}

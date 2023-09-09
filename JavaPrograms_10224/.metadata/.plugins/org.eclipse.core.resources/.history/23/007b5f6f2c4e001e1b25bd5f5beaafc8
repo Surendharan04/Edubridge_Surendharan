@@ -1,0 +1,31 @@
+package com.edu;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class TestCaseAnnotations {
+	
+	@Before
+	public void beforeTest() {
+		System.out.println("Before each Test case");
+	}
+	
+	@After
+	public void afterTest() {
+		System.out.println("After each Test case");
+	}
+
+	@Test
+	public void test1() {
+		System.out.println("test1");
+	}
+	
+	@Test
+	public void test2() {
+		System.out.println("test2");
+	}
+
+}

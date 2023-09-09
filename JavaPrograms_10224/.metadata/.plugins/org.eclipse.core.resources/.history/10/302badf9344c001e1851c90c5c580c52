@@ -1,0 +1,12 @@
+package com.elevatorprogram;
+
+import java.util.Scanner;
+
+public class Elevator {
+	public String selectFloor() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Options: (s)elect a floor, (f)ire alarm, (q)uit");
+		System.out.print("Enter s, f or q ==>");
+		String choice = sc.next();
+	}
+}
