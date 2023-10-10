@@ -1,0 +1,13 @@
+package com.spring.objectDI2;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainText {
+	public static void main(String[] args) {
+		ApplicationContext appcontext = new ClassPathXmlApplicationContext();
+		TextEditor textedit = (TextEditor) appcontext.getBean("texteditor");
+		textedit.checkText();
+	}
+
+}

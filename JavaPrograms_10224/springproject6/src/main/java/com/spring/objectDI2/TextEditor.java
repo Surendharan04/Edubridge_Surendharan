@@ -1,0 +1,18 @@
+package com.spring.objectDI2;
+
+public class TextEditor {
+	SpellCheck spellcheck;
+	public TextEditor(SpellCheck spellcheck) {
+		this.spellcheck = spellcheck;
+	}
+	
+	public void checkText() {
+		if(spellcheck != null) {
+			spellcheck.displaySpellCheck();
+			System.out.println("Text is corrected");
+		}
+		else {
+			System.err.println("Spellcheck is not initialized");
+		}
+	}
+}

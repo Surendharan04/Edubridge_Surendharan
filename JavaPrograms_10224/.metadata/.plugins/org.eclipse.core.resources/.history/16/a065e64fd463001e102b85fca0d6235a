@@ -1,0 +1,73 @@
+package com.atmproject;
+
+import java.sql.SQLException;
+
+public class TransactionStatement {
+	AtmOperations2 atmops = new AtmOperations2();
+	public void getCustomTransactionStatement() throws SQLException {
+        String accountNumber = atmops.inputandvalidateAccountNo();
+        String accountPin = atmops.inputandvalidatePin();
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for start date and time
+        System.out.print("Enter the start date (yyyy-MM-dd): ");
+        String startDateStr = scanner.next();
+        System.out.print("Enter the start time (HH:mm:ss): ");
+        String startTimeStr = scanner.next();
+
+        // Prompt the user for end date and time
+        System.out.print("Enter the end date (yyyy-MM-dd): ");
+        String endDateStr = scanner.next();
+        System.out.print("Enter the end time (HH:mm:ss): ");
+        String endTimeStr = scanner.next();
+
+        // Concatenate date and time for start and end
+        String formattedStartDate = startDateStr + " " + startTimeStr;
+        String formattedEndDate = endDateStr + " " + endTimeStr;
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        try {
+            // Fetch account_id based on account_number
+            String accountIdQuery = "SELECT account_id FROM Account WHERE account_number = ?";
+            pst = con.prepareStatement(accountIdQuery);
+            pst.setString(1, accountNumber);
+            rs = pst.executeQuery();
+
+            int accountId = 0;
+            if (rs.next()) {
+                accountId = rs.getInt("account_id");
+            } else {
+                System.err.println("Account not found.");
+                return;
+            }
+
+            // Convert start and end date/time to Date objects
+            Date startDate = dateFormat.parse(formattedStartDate);
+            Date endDate = dateFormat.parse(formattedEndDate);
+
+            // SQL to retrieve transactions between two dates for the given account_id
+            String query = "SELECT * FROM Transaction WHERE account_id = ? AND transaction_date BETWEEN ? AND ?";
+            pst = con.prepareStatement(query);
+            pst.setInt(1, accountId);
+            pst.setTimestamp(2, new java.sql.Timestamp(startDate.getTime()));
+            pst.setTimestamp(3, new java.sql.Timestamp(endDate.getTime()));
+
+            rs = pst.executeQuery();
+
+            System.out.println("Custom Transaction Statement for account number " + accountNumber + " between " + formattedStartDate + " and " + formattedEndDate + ":");
+            System.out.format("%-15s%-20s%-15s%-10s%n", "Transaction ID", "Date", "Type", "Amount");
+
+            while (rs.next()) {
+                int transactionId = rs.getInt("transaction_id");
+                Date transactionDate = rs.getTimestamp("transaction_date");
+                String transactionType = rs.getString("transaction_type");
+                double amount = rs.getDouble("amount");
+                System.out.format("%-15d%-20s%-15s%-10.2f%n", transactionId, dateFormat.format(transactionDate), transactionType, amount);
+            }
+        } catch (Exception e) {
+            System.err.println("Error retrieving custom transaction statement: " + e.getMessage());
+        }
+    }
+}

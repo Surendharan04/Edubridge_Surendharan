@@ -1,0 +1,8 @@
+package com.spring;
+
+public class MainSpring {
+	public static void main(String[] args) {
+		//For Spring the object should be inserted by dependency injection
+		
+	}
+}

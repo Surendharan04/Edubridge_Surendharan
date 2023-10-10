@@ -1,0 +1,7 @@
+package com.spring.propertyinjection;
+
+public class MainSpring {
+	public static void main(String[] args) {
+		
+	}
+}

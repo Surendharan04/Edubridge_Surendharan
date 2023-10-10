@@ -1,5 +1,6 @@
 package com.edu;
 
+@FunctionalInterface
 interface Hello{
 	void message();
 }

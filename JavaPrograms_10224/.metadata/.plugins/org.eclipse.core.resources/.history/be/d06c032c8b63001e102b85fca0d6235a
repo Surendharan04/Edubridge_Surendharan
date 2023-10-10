@@ -1,0 +1,188 @@
+package com.atmproject;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class AtmOperations2 {
+	private static Connection con;
+	private static Statement st;
+	private static PreparedStatement pst;
+	private static PreparedStatement pst1;
+	private static PreparedStatement pst2;
+	private static ResultSet rs;
+	private static ResultSet rs1;
+	private static ResultSet rs2;
+
+	
+	private static String inputandvalidateAccountNo() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Account Number: ");
+		String accNo = sc.next();
+		if (accNo.length() != 12) {
+			System.err.println("Account no is not valid. Please check and enter correct Account number");
+			return inputandvalidateAccountNo();
+		}
+		else {
+			return accNo;
+		}
+	}
+	
+	
+	private static String inputandvalidatePin() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter your 4-digit PIN: ");
+		String pin = sc.next();
+		if (pin.length() != 4) {
+			System.err.println("PIN is not valid. Please check and enter correct PIN");
+			return inputandvalidatePin();
+		}
+		else {
+			return pin;
+		}
+	}
+	
+	
+	private static double inputandvalidateAmount() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the Amount: ");
+		int amount = sc.nextInt();
+		if(amount == 0) {
+			System.err.println("Please enter a valid amount");
+			return inputandvalidateAmount();
+		}
+		else if(amount < 100){
+			System.err.println("Enter a amount equal to or greater than Rs.100");
+			return inputandvalidateAmount();
+		}
+		else {
+			return amount;
+		}
+	}
+	
+	
+	public void checkBalance() throws SQLException {
+		String accountNumber = inputandvalidateAccountNo();
+		String accountPin = inputandvalidatePin();
+		String query = "SELECT account_balance FROM Account WHERE account_number = ? AND account_pin = ?";
+		
+		con = DatabaseConnection.getConnection();
+		pst = con.prepareStatement(query);
+		pst.setString(1,accountNumber);
+		pst.setString(2,accountPin);
+		rs = pst.executeQuery();
+		
+		if(rs.next()) {
+			System.out.println("Account balance : " + rs.getFloat(1));
+		}
+		else {
+			System.err.println("Account not found");
+		}
+	}
+	
+	
+	public void register() throws SQLException {
+		String accountNumber = inputandvalidateAccountNo();
+		String accountPin = inputandvalidatePin();
+		double initialAmount = inputandvalidateAmount();
+		String query = "INSERT INTO Account(account_number, account_balance, account_pin) VALUES(?,?,?)";
+		String getId = "SELECT account_id FROM Account WHERE account_number = ?";
+		
+		con = DatabaseConnection.getConnection();
+		pst = con.prepareStatement(query);
+		pst.setString(1,accountNumber);
+		pst.setDouble(2,initialAmount);
+		pst.setString(3,accountPin);
+		
+		pst = con.prepareStatement(getId);
+		pst.setString(1,accountNumber);
+		
+		int rows = pst.executeUpdate();
+		rs = pst.executeQuery();
+		
+		if(rows > 0 && rs.next()) {
+			System.out.println("Account has been created successfully with Account ID:" + rs.getInt(1));
+		}
+		else {
+			System.err.println("Account cannot be created." /*Please check the input data are valid"*/);
+			register();
+		}
+	}
+	
+	
+	public void deposit() throws SQLException {
+		String accountNumber = inputandvalidateAccountNo();
+		String accountPin = inputandvalidatePin();
+		double depositAmount = inputandvalidateAmount();
+		String query = "UPDATE Account SET account_balance = account_balance + ? WHERE account_number = ? AND account_pin = ?";
+		String getBalance = "SELECT account_balance FROM Account WHERE account_number = ?";
+		
+		con = DatabaseConnection.getConnection();
+		pst = con.prepareStatement(query);
+		pst.setDouble(1,depositAmount);
+		pst.setString(2,accountNumber);
+		pst.setString(3,accountPin);
+		
+		int rows = pst.executeUpdate();
+		
+		pst = con.prepareStatement(getBalance);
+		pst.setString(1,accountNumber);
+		
+		rs = pst.executeQuery();
+		
+		if(rows > 0 && rs.next()) {
+			System.out.println("\nThe amount has been deposited");
+			System.out.println("Your current account balance is Rs." + rs.getDouble(1));
+		}
+		else {
+			System.err.println("Amount cannot be deposited. Please check the credentials and try again");
+			deposit();
+		}
+	}
+	
+	
+	public void withdraw() throws SQLException {
+		String accountNumber = inputandvalidateAccountNo();
+		String accountPin = inputandvalidatePin();
+		double withdrawAmount = inputandvalidateAmount();
+		String query = "UPDATE Account SET account_balance = account_balance - ? WHERE account_number = ? AND account_pin = ?";
+		String getBalance = "SELECT account_balance FROM Account WHERE account_number = ?";
+
+		con = DatabaseConnection.getConnection();
+		
+		pst1 = con.prepareStatement(getBalance);
+		pst1.setString(1,accountNumber);
+		rs1 = pst1.executeQuery();
+		
+		if(rs1.next()) {
+			double balance = rs1.getDouble(1);
+			if(balance < withdrawAmount + 100) {
+				System.out.println("Your current account balance is Rs." + balance);
+				System.err.println("\nCannot withdraw amount");
+				System.err.println("Balance will become less than the minimum balance Rs.100");
+				return;
+			}
+			else {
+				pst2 = con.prepareStatement(query);
+				pst2.setDouble(1,withdrawAmount);
+				pst2.setString(2,accountNumber);
+				pst2.setString(3,accountPin);
+				int rows = pst2.executeUpdate();
+				rs2 = pst1.executeQuery();
+
+				
+				if(rows > 0 && rs2.next()) {
+					System.out.println("\nPlease take the cash...");
+					System.out.println("Your current account balance is Rs." + rs2.getDouble(1));
+				}
+				else {
+					System.err.println("Amount cannot be withdrawn");
+					withdraw();
+				}
+			}
+		}
+	}
+}

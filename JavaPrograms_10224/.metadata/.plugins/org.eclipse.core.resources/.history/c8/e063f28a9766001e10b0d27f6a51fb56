@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="vehicle1" class="com.spring.propertyinjection.Vehicle">
+    	<property name="vid" value="1001"></property>
+    	<property name="vtype" value="Car"></property>
+    	<property name="vbrand" value="Tata"></property>
+    </bean>
+    
+    <bean id="vehicle2" class="com.spring.propertyinjection.Vehicle">
+    	<property name="vid" value="1002"></property>
+    	<property name="vtype" value="Car"></property>
+    	<property name="vbrand" value="Nissan"></property>
+    </bean>
+
+</beans>

@@ -1,0 +1,30 @@
+package com.spring.propertyinjection;
+
+public class Vehicle {
+	private int vid;
+	private String vtype;
+	private String vbrand;
+	public int getVid() {
+		return vid;
+	}
+	public void setVid(int vid) {
+		this.vid = vid;
+	}
+	public String getVtype() {
+		return vtype;
+	}
+	public void setVtype(String vtype) {
+		this.vtype = vtype;
+	}
+	public String getVbrand() {
+		return vbrand;
+	}
+	public void setVbrand(String vbrand) {
+		this.vbrand = vbrand;
+	}
+	
+	public void vehicleDisplay() {
+		System.out.println("Vehicle Type: " +vtype);
+		System.out.println("Vehicle Brand: " +vbrand);
+	}
+}

@@ -1,0 +1,7 @@
+package com.spring.configuration;
+
+public class Employee {
+	public void helloEmployee() {
+		System.out.println("Hello Employee");
+	}
+}

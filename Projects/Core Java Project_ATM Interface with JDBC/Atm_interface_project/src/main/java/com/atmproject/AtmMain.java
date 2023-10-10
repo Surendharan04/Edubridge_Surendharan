@@ -1,0 +1,75 @@
+package com.atmproject;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+/**
+ * ****************-Core Java Project-************************
+ * ****************ATM Interface Project********************
+ * *under the guidance of Trainer Indrakka Basappa Mali
+ * 
+ * This is the main class for the ATM Interface System.
+ * It contains the main method to start the ATM application and handle user interactions.
+ *
+ * @author Surendharan
+ * @version 1.0
+*/
+
+public class AtmMain {
+	public static void main(String[] args) throws SQLException {
+		AtmOperations atmMenu = new AtmOperations();
+		TransactionStatement transaction = new TransactionStatement();
+		Scanner sc = new Scanner(System.in);
+		
+	    System.out.println("**********Welcome to ABC Bank!**********");
+	    System.out.println("\nPlease choose the options below to proceed with the transaction");	
+	    //Get the choice from the user
+	    
+	    while(true) {
+		    System.out.println("\n==========MENU==========");
+		    System.out.println("1.Check Balance");
+		    System.out.println("2.Open an account");
+		    System.out.println("3.Deposit Money");
+		    System.out.println("4.Withdraw Money");
+		    System.out.println("5.Generate Mini Statement");
+		    
+		    System.out.print("\nEnter the option that you want to proceed: ");
+		    int option = sc.nextInt();
+		    
+		    switch(option) {
+			    case 1:
+			    	atmMenu.checkBalance();
+			    	break;
+			    	
+			    case 2:
+			    	atmMenu.register();
+			    	break;
+			    	
+			    case 3:
+			    	atmMenu.deposit();
+			    	break;
+			    	
+			    case 4:
+			    	atmMenu.withdraw();
+			    	break;
+			    	
+			    case 5:
+			    	transaction.getCustomTransactionStatement();
+			    	break; 
+			    	
+			    default:
+			    	//If the user enters the option other than mentioned in the menu the message will be displayed
+			    	System.out.println("Please enter an option from the menu");
+			    	continue;
+		    }
+		    System.out.print("\nPlease enter 'y' to continue for other transactions or 'n' to exit :");
+		    char lastOption = sc.next().toLowerCase().charAt(0);
+		    
+		    if(lastOption != 'y') {
+		    	System.out.println("****Thank you for using our services!****");
+		    	break;
+		    }
+	    }
+	    sc.close();
+	}
+}

@@ -1,0 +1,8 @@
+package com.spring.objectDI2;
+
+public class TextEditor {
+	SpellCheck spellcheck;
+	public TextEditor(SpellCheck spellcheck) {
+		this.spellcheck = spellcheck;
+	}
+}

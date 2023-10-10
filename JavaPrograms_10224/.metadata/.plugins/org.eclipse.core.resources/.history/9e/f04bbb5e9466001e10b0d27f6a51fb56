@@ -1,0 +1,5 @@
+package com.spring.propertyinjection;
+
+public class Vehicle {
+
+}

@@ -1,0 +1,10 @@
+package com.spring.annotationbased;
+
+import org.springframework.context.annotation.ComponentScan;
+
+@ComponentScan
+public class Product {
+	public void productDisplay() {
+		System.out.println("Product Method");
+	}
+}

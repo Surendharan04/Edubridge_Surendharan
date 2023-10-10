@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\SURENDHARAN\OneDrive\Desktop\Programs\JavaPrograms_10224\jdbc\src\main\java\jdbc\edu\fetch\FetchRecords.java"/>
 			<item value="C:\Users\SURENDHARAN\OneDrive\Desktop\Programs\JavaPrograms_10224\TrainingBasic\src\com\edu\StreamDemo2.java"/>
 			<item value="C:\Users\SURENDHARAN\OneDrive\Desktop\Programs\JavaPrograms_10224\TrainingBasic\src\com\edu\StreamDemo3.java"/>
 		</list>
@@ -46,13 +47,30 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.spring"/>
+			<item value="com.jdbc1"/>
+			<item value="com.atm"/>
+			<item value="com.hiber3"/>
 			<item value="com.edu"/>
+			<item value="com.id"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="MyTest1"/>
-			<item value="JUnitTestExample"/>
+			<item value="springproject6"/>
+			<item value="springproject5"/>
+			<item value="springproject4"/>
+			<item value="springproject3"/>
+			<item value="springproject2"/>
+			<item value="springproject1"/>
+			<item value="jdbcproject1"/>
+			<item value="Atm_interface_project"/>
+			<item value="hibernateproject3"/>
+			<item value="hibernateproject2"/>
+			<item value="hibernateproject1"/>
+			<item value="JDBC_PreparedStatement"/>
+			<item value="jdbc"/>
+			<item value="jdbcconnection"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -69,5 +87,7 @@
 	<section name="org.eclipse.m2e.core.pom.overview">
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.wizards.CustomArchetypeDialog">
 	</section>
 </section>

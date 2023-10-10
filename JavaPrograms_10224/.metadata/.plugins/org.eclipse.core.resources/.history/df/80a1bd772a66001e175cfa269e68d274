@@ -1,0 +1,57 @@
+import java.sql.SQLException;
+import java.util.Scanner;
+
+/**
+ * ****************-Core Java Project-************************
+ * ****************ATM Interface Project********************
+ * *under the guidance of Trainer Indrakka Basappa Mali
+ * 
+ * This is the main class for the ATM Interface System.
+ * It contains the main method to start the ATM application and handle user interactions.
+ *
+ * @author Surendharan
+ * @version 1.0
+ */
+public class AtmMain {
+    /**
+     *
+     * Main method to start the ATM application and handle user interactions.
+     *
+     */
+    public static void main(String[] args) throws SQLException {
+        // Initialize the ATMOperations and TransactionStatement instances
+        AtmOperations atmMenu = new AtmOperations();
+        TransactionStatement transaction = new TransactionStatement();
+
+        // Create a Scanner object to read user input
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("**********Welcome to ABC Bank!**********");
+        System.out.println("\nPlease choose the options below to proceed with the transaction");
+
+        while (true) {
+            System.out.println("\n==========MENU==========");
+            System.out.println("1.Check Balance");
+            System.out.println("2.Open an account");
+            System.out.println("3.Deposit Money");
+            System.out.println("4.Withdraw Money");
+            System.out.println("5.Generate Mini Statement");
+
+            System.out.print("\nEnter the option that you want to proceed: ");
+            int option = sc.nextInt();
+
+            // Rest of the switch case statements and user interactions...
+
+            System.out.print("\nPlease enter 'y' to continue for other transactions or 'n' to exit :");
+            char lastOption = sc.next().toLowerCase().charAt(0);
+
+            if (lastOption != 'y') {
+                System.out.println("****Thank you for using our services!****");
+                break;
+            }
+        }
+
+        // Close the Scanner to release resources
+        sc.close();
+    }
+}
