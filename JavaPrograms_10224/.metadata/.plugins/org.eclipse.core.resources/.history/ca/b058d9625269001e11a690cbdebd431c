@@ -1,0 +1,5 @@
+package com.springboot.vehicleproduction.service;
+
+public interface VehicleService {
+
+}

@@ -1,0 +1,13 @@
+package com.springboot.employeemanagement.service;
+
+import com.springboot.employeemanagement.dao.Employee;
+
+public class EmployeeServiceImplementedClass implements EmployeeService{
+
+	@Override
+	public Employee addEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

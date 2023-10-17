@@ -1,0 +1,127 @@
+package com.springboot.employeemanagement.dao;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Past;
+
+@Entity
+public class Employee {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer employeeId;
+	
+	@Column(length=20, nullable=false)
+	private String employeeName;
+	
+	@Column(nullable=false) @Min(5000) @Max(200000)
+	private float employeeSalary;
+	
+	@Future
+	private Date employeeJoiningDate;
+	
+	@Past
+	private Date employeeDateOfBirth;
+	
+	@Column(length=10, nullable=false, unique=true /*regexp="^[5-9]+$"*/)
+	private String employeePhoneNumber;
+	
+	@Column(length=20, unique=true, nullable=false)
+	private String employeeEmailId;
+	
+	@ManyToOne
+	@JoinColumn(name="departmentId")
+	private static Department department;
+
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public Employee(Integer employeeId, String employeeName, float employeeSalary, Date employeeJoiningDate,
+			Date employeeDateOfBirth, String employeePhoneNumber, String employeeEmailId) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeSalary = employeeSalary;
+		this.employeeJoiningDate = employeeJoiningDate;
+		this.employeeDateOfBirth = employeeDateOfBirth;
+		this.employeePhoneNumber = employeePhoneNumber;
+		this.employeeEmailId = employeeEmailId;
+	}
+	
+
+	public Integer getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(Integer employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+
+	public float getEmployeeSalary() {
+		return employeeSalary;
+	}
+	public void setEmployeeSalary(float employeeSalary) {
+		this.employeeSalary = employeeSalary;
+	}
+
+	public Date getEmployeeJoiningDate() {
+		return employeeJoiningDate;
+	}
+	public void setEmployeeJoiningDate(Date employeeJoiningDate) {
+		this.employeeJoiningDate = employeeJoiningDate;
+	}
+
+	public Date getEmployeeDateOfBirth() {
+		return employeeDateOfBirth;
+	}
+	public void setEmployeeDateOfBirth(Date employeeDateOfBirth) {
+		this.employeeDateOfBirth = employeeDateOfBirth;
+	}
+
+	public String getEmployeePhoneNumber() {
+		return employeePhoneNumber;
+	}
+	public void setEmployeePhoneNumber(String employeePhoneNumber) {
+		this.employeePhoneNumber = employeePhoneNumber;
+	}
+	
+	public String getEmployeeEmailId() {
+		return employeeEmailId;
+	}
+	public void setEmployeeEmailId(String employeeEmailId) {
+		this.employeeEmailId = employeeEmailId;
+	}
+
+	
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", employeeSalary="
+				+ employeeSalary + ", employeeJoiningDate=" + employeeJoiningDate + ", employeeDateOfBirth="
+				+ employeeDateOfBirth + ", employeePhoneNumber=" + employeePhoneNumber + ", employeeEmailId="
+				+ employeeEmailId + "]";
+	}
+
+
+	public static void updateEmployeeDepartment(Department dept) {
+		this.department = department; 
+	}
+	
+}

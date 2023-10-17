@@ -1,0 +1,55 @@
+package com.springboot.employeemanagement.dao;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Department {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int departmentId;
+	private String departmentName;
+	private String departmentString;
+	
+	
+	public Department() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public Department(String departmentName, String departmentString) {
+		super();
+		this.departmentName = departmentName;
+		this.departmentString = departmentString;
+	}
+	
+	
+	public int getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(int departmentId) {
+		this.departmentId = departmentId;
+	}
+	public String getDepartmentName() {
+		return departmentName;
+	}
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	public String getDepartmentString() {
+		return departmentString;
+	}
+	public void setDepartmentString(String departmentString) {
+		this.departmentString = departmentString;
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Department [departmentId=" + departmentId + ", departmentName=" + departmentName + ", departmentString="
+				+ departmentString + "]";
+	}
+}

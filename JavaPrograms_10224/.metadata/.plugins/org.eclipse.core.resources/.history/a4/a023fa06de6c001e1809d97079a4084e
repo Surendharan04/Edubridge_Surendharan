@@ -1,0 +1,16 @@
+package com.springboot.employeemanagement.service;
+
+import java.util.List;
+
+import com.springboot.employeemanagement.dao.Employee;
+import com.springboot.employeemanagement.error.GlobalException;
+
+public interface EmployeeService {
+
+	public Employee addEmployee(Employee employee);
+	public Employee updateEmployeeDepartment(Integer employeeId, Integer departmentId);
+	public Employee getEmployeeById(Integer employeeId) throws GlobalException;
+	public String deleteEmployeeById(Integer employeeId);
+	public List<Employee> getAllEmployees();
+
+}

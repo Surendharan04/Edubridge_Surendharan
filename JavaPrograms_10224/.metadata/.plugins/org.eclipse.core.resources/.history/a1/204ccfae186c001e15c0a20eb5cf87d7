@@ -1,0 +1,21 @@
+package com.springboot.employeemanagement.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springboot.employeemanagement.dao.Employee;
+import com.springboot.employeemanagement.repository.EmployeeRepository;
+
+@Service
+public class EmployeeServiceImplementedClass implements EmployeeService{
+
+	@Autowired
+	private EmployeeRepository employeeRepository;
+	
+	@Override
+	public Employee addEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		return employeeRepository.save(employee);
+	}
+
+}

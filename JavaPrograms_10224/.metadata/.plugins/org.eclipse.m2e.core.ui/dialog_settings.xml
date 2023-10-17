@@ -57,6 +57,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="springproject7"/>
 			<item value="springproject6"/>
 			<item value="springproject5"/>
 			<item value="springproject4"/>

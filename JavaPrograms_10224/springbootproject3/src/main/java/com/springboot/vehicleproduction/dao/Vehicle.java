@@ -1,0 +1,55 @@
+package com.springboot.vehicleproduction.dao;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Vehicle {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer vehicleId;
+	private String vehicleType;
+	private String vehicleBrand;
+	
+	public Vehicle() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public Vehicle(Integer vehicleId, String vehicleType, String vehicleBrand) {
+		super();
+		this.vehicleId = vehicleId;
+		this.vehicleType = vehicleType;
+		this.vehicleBrand = vehicleBrand;
+	}
+	
+	
+	public Integer getVehicleId() {
+		return vehicleId;
+	}
+	public void setVehicleId(Integer vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+	public String getVehicleType() {
+		return vehicleType;
+	}
+	public void setVehicleType(String vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+	public String getVehicleBrand() {
+		return vehicleBrand;
+	}
+	public void setVehicleBrand(String vehicleBrand) {
+		this.vehicleBrand = vehicleBrand;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Vehicle [vehicleId=" + vehicleId + ", vehicleType=" + vehicleType + ", vehicleBrand=" + vehicleBrand
+				+ "]";
+	}
+}

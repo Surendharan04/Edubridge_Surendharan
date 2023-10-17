@@ -1,0 +1,48 @@
+package com.springboot.vehicleproduction.dao;
+
+@Entity
+public class Vehicle {
+	private int vehicleId;
+	private String vehicleType;
+	private String vehicleBrand;
+	
+	public Vehicle() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public Vehicle(int vehicleId, String vehicleType, String vehicleBrand) {
+		super();
+		this.vehicleId = vehicleId;
+		this.vehicleType = vehicleType;
+		this.vehicleBrand = vehicleBrand;
+	}
+
+	
+	public int getVehicleId() {
+		return vehicleId;
+	}
+	public void setVehicleId(int vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+	public String getVehicleType() {
+		return vehicleType;
+	}
+	public void setVehicleType(String vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+	public String getVehicleBrand() {
+		return vehicleBrand;
+	}
+	public void setVehicleBrand(String vehicleBrand) {
+		this.vehicleBrand = vehicleBrand;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Vehicle [vehicleId=" + vehicleId + ", vehicleType=" + vehicleType + ", vehicleBrand=" + vehicleBrand
+				+ "]";
+	}
+}

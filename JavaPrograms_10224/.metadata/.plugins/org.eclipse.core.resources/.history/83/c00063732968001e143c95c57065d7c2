@@ -1,0 +1,5 @@
+package com.springboot.employeemanagement.controller;
+
+public class DepartmentController {
+
+}

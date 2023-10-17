@@ -1,0 +1,5 @@
+package com.springboot.employeemanagement.dao;
+
+public class Employee {
+
+}

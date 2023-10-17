@@ -1,0 +1,9 @@
+package com.springboot.employeemanagement.service;
+
+import com.springboot.employeemanagement.dao.Department;
+
+public interface DepartmentInterface {
+
+	public Department addDepartment(Department department);
+	
+}

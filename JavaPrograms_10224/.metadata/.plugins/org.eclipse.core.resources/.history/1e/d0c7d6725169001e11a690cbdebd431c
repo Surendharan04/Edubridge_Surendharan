@@ -1,0 +1,5 @@
+package com.springboot.vehicleproduction.repository;
+
+public class VehicleRepository {
+	public int
+}

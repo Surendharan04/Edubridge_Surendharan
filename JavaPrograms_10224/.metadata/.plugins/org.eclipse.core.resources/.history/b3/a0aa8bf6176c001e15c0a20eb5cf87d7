@@ -1,0 +1,28 @@
+package com.springboot.employeemanagement.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.employeemanagement.dao.Employee;
+import com.springboot.employeemanagement.service.EmployeeService;
+
+@RestController
+public class EmployeeController {
+	@Autowired
+	private EmployeeService employeeService;
+	
+	@PostMapping("/addEmployee")
+	public Employee addEmployee(@RequestBody Employee employee) {
+		return employeeService.addEmployee(employee);
+	}
+
+	@PutMapping("/updateEmployeeDepartment/eid/{eid}/did/{did}")
+	public Employee updateEmployeeDepartment(@PathVariable("eid") Integer employeeId, @PathVariable("did") Integer departmentId) {
+		return null;
+		
+	}
+}

@@ -1,0 +1,12 @@
+package com.springboot.employeemanagement.service;
+
+import org.springframework.stereotype.Repository;
+
+import com.springboot.employeemanagement.dao.Employee;
+
+@Repository
+public interface EmployeeService {
+
+	public Employee addEmployee(Employee employee);
+	
+}

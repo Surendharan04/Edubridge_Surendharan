@@ -1,0 +1,40 @@
+package com.springboot.employeemanagement.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.springboot.employeemanagement.dao.Department;
+import com.springboot.employeemanagement.repository.DepartmentRepository;
+
+@Service
+public class DepartmentInterfaceImplementedClass implements DepartmentInterface{
+
+	@Autowired
+	private DepartmentRepository departmentRepository;
+	
+	@Override
+	public Department addDepartment(Department department) {
+		// TODO Auto-generated method stub
+		return departmentRepository.save(department);
+	}
+	
+	@Override
+	public List<Department> getAllDepartments() {
+		// TODO Auto-generated method stub
+		return departmentRepository.findAll();
+	}
+
+	@Override
+	public Department getDepartmentById(Integer departmentId) {
+		// TODO Auto-generated method stub
+		return departmentRepository.getById(departmentId);
+	}
+
+	@Override
+	public Department deleteDepartment(Department department) {
+		// TODO Auto-generated method stub
+		return departmentRepository.save(department);
+	}
+}

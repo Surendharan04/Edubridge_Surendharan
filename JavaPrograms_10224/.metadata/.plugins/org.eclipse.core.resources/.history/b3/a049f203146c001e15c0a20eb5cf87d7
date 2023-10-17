@@ -1,0 +1,9 @@
+package com.springboot.employeemanagement.service;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.springboot.employeemanagement.dao.Employee;
+
+public interface EmployeeService extends JpaRepository<Employee, Integer>{
+	
+}

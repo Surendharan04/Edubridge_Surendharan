@@ -1,0 +1,27 @@
+package com.springboot.employeemanagement.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.employeemanagement.dao.Department;
+import com.springboot.employeemanagement.service.DepartmentInterface;
+
+@RestController
+public class DepartmentController {
+	//Injects an Object of Service Interface that should be private
+	@Autowired
+	private DepartmentInterface departmentInterface;
+	
+	@PostMapping("/addDepartment")	//http://localhost:8990/addDepartment
+	public Department addDepartment(@RequestBody Department department) {
+		return departmentInterface.addDepartment(department);
+	}
+	
+	@DeleteMapping("/deleteDepartment")	//http://localhost:8990/deleteDepartment
+	public Department deleteDepartment(@RequestBody Department department) {
+		return departmentInterface.deleteDepartment(department);
+	}
+}

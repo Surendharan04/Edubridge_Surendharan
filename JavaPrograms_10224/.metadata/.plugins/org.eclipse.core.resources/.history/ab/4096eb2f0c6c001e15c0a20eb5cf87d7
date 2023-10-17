@@ -1,0 +1,82 @@
+package com.springboot.employeemanagement.dao;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Employee {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer employeeId;
+	private String employeeName;
+	private float employeeSalary;
+	private Date employeeJoiningDate;
+	private Date employeeDateOfBirth;
+	
+	private Department department;
+	
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public Employee(Integer employeeId, String employeeName, float employeeSalary, Date employeeJoiningDate,
+			Date employeeDateOfBirth) {
+		super();
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeSalary = employeeSalary;
+		this.employeeJoiningDate = employeeJoiningDate;
+		this.employeeDateOfBirth = employeeDateOfBirth;
+	}
+
+	
+	public Integer getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(Integer employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+	
+	public float getEmployeeSalary() {
+		return employeeSalary;
+	}
+	public void setEmployeeSalary(float employeeSalary) {
+		this.employeeSalary = employeeSalary;
+	}
+	
+	public Date getEmployeeJoiningDate() {
+		return employeeJoiningDate;
+	}
+	public void setEmployeeJoiningDate(Date employeeJoiningDate) {
+		this.employeeJoiningDate = employeeJoiningDate;
+	}
+	
+	public Date getEmployeeDateOfBirth() {
+		return employeeDateOfBirth;
+	}
+	public void setEmployeeDateOfBirth(Date employeeDateOfBirth) {
+		this.employeeDateOfBirth = employeeDateOfBirth;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", employeeSalary="
+				+ employeeSalary + ", employeeJoiningDate=" + employeeJoiningDate + ", employeeDateOfBirth="
+				+ employeeDateOfBirth + "]";
+	}
+	
+}
